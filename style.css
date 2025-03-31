@@ -47,7 +47,6 @@ body {
   place-content: center;
 }
 
-
 /* Main content */
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -59,11 +58,31 @@ body {
   width: 1px;
 }
 
+main {
+  margin-block: 2rem;
+}
+
 .wrapper {
   max-inline-size: 30rem;
   inline-size: 90%;
   margin-inline: auto;
   display: grid;
+}
+
+.description-wrapper {
+  padding-inline: min(2rem, 8%);
+  padding-block-start: 2rem;
+  padding-block-end: 1.125rem;
+  background-color: white;
+  display: grid;
+  gap: 1rem;
+}
+
+@media(width < 40rem) {
+  .thumbnail-wrapper {
+    transform: translateY(17%);
+    z-index: -1;
+  }
 }
 
 @media(min-width: 40rem) {
@@ -77,37 +96,32 @@ body {
     grid-row-start: 1;
   }
 
+  .description-wrapper {
+    grid-column: 6 / -1;
+    grid-row-start: 1;
+    z-index: 9999;
+    padding: 2.375rem;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+  }
+
   .thumbnail-wrapper img {
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
     height: 100%;
   }
-
-  .description-wrapper {
-    grid-column: 6 / -1;
-    grid-row-start: 1;
-    z-index: 9999;
-    background-color: white;
-    padding: 2.375rem;
-    border-top-right-radius: .5rem;
-    border-bottom-right-radius: .5rem;
-  }
-}
-
-.description-wrapper {
-  padding-inline: 2rem;
-  padding-block-start: 2rem;
-  padding-block-end: 1.125rem;
-  display: grid;
-  gap: 1rem;
 }
 
 .description-wrapper > h2 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: var(--fw-bold);
   color: var(--clr-very-dark-grayish-blue);
   line-height: 1.25;
-  text-wrap: balance;
+  max-inline-size: 28ch;
+}
+
+.description-wrapper > p {
+  max-inline-size: 42ch;
 }
 
 .meta-data {
@@ -123,6 +137,11 @@ body {
   border-radius: 50%;
 }
 
+.meta-data > div {
+  flex: 1;
+  min-inline-size: 12ch;
+}
+
 .name {
   font-weight: var(--fw-bold);
   color: var(--clr-very-dark-grayish-blue);
@@ -130,7 +149,6 @@ body {
 
 .share-button {
   cursor: pointer;
-  margin-inline-start: auto;
   background-color: var(--clr-very-dark-grayish-blue);
   padding: .5rem;
   border: 0;

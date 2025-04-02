@@ -61,7 +61,7 @@ body {
 }
 
 main {
-  margin-block: 2rem;
+  margin-block: 1rem;
 }
 
 .wrapper {
@@ -210,20 +210,30 @@ footer {
 
 .share-button {
   cursor: pointer;
-  background-color: var(--clr-very-dark-grayish-blue);
-  padding: .5rem;
   border: 0;
   border-radius: 50%;
+  width: 2rem;
+  aspect-ratio: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
   background-color: var(--clr-light-grayish-blue);
 }
 
-.share-button svg {
-  width: 1rem;
-  height: 1rem;
+.share-button:hover {
+  background-color: var(--clr-desaturated-dark-blue);
+}
+
+.share-button:focus-visible {
+  outline: 2px solid var(--clr-grayish-blue);
+}
+
+.share-button:hover svg path {
+  fill: var(--clr-light-grayish-blue);
+}
+
+.link:hover svg path {
+  fill: var(--clr-grayish-blue);
 }
 
 @media (width < 40em) {
@@ -245,7 +255,7 @@ footer {
 
   .share-links-wrapper {
     position: absolute;
-    bottom: 15.5vh;
+    bottom: 6.5rem;
     right: -3.75rem;
   }
 
@@ -260,7 +270,7 @@ footer {
     height: 0;
     content: '';
     position: absolute;
-    top: 100%;
+    top: 99%;
     left: 50%;
     border-left: 14px solid transparent;
     border-right: 14px solid transparent;
